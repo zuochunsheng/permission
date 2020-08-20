@@ -14,12 +14,12 @@ import androidx.core.content.ContextCompat;
 
 /**
  * authr : zcs on 2017/11/22  下午4:12
- * describe ：/???
+ * describe ：PermissionUtil
  */
-public class PermissionUtil  {
+public class PermissionUtil {
 
 
-    static PermissionUtil sSingleton;
+    private static PermissionUtil sSingleton;
     private Context mCtx;
 
     public static PermissionUtil getInstance(Context ctx) {
@@ -28,18 +28,17 @@ public class PermissionUtil  {
         }
         return sSingleton;
     }
+
     PermissionUtil(Context ctx) {
         mCtx = ctx;
     }
 
 
-
-
-    public final static int REQUEST_CODE = 1;
+    private final static int REQUEST_CODE = 1;
     private static IPermission mListener;
 
     @TargetApi(Build.VERSION_CODES.M)
-    public  void requestRunTimePermission(String[] permissions, IPermission listener) {
+    public void requestRunTimePermission(String[] permissions, IPermission listener) {
 
         mListener = listener;
         List<String> permissionList = new ArrayList<>();
@@ -59,7 +58,7 @@ public class PermissionUtil  {
     }
 
     //跳转
-   private void startShadowActivity(String[] permissions) {
+    private void startShadowActivity(String[] permissions) {
 
         Intent intent = new Intent(mCtx, ShadowActivity.class);
         intent.putExtra("permissions", permissions);
@@ -68,11 +67,10 @@ public class PermissionUtil  {
     }
 
 
-
     //回调
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
+    protected void onRequestPermissionsResult(int requestCode,
+                                              @NonNull String[] permissions,
+                                              @NonNull int[] grantResults) {
 
         switch (requestCode) {
             case REQUEST_CODE:

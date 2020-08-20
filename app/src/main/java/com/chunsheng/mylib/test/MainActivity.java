@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //工具类 方式
+        //工具类 使用方式
         PermissionUtil.getInstance(this)
                 .requestRunTimePermission(new String[]{Manifest.permission.CALL_PHONE,
                                 Manifest.permission.WRITE_EXTERNAL_STORAGE},

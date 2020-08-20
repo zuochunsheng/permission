@@ -1,7 +1,7 @@
 # permission
 6.0权限工具
 
-PermissionUtil.getInstance(Context)
+                    PermissionUtil.getInstance(Context)
                     .requestRunTimePermission(new String[]{Manifest.permission.CALL_PHONE,
                                     Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             new IPermission() {

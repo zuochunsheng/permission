@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 android {
     compileSdkVersion 28
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 17
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -34,9 +34,9 @@ dependencies {
 }
 
 version = MAVEN_VERSION
-def siteUrl = 'https://github.com/zuochunsheng/libTest'    // project homepage
-def gitUrl = 'https://github.com/zuochunsheng/libTest.git' // project git
-group = MAVEN_GROUP_ID// Maven Group ID for the artifact (pageckage name)
+def siteUrl = 'https://github.com/zuochunsheng/permission'    // project homepage
+def gitUrl = 'https://github.com/zuochunsheng/permission.git' // project git
+group = MAVEN_GROUP_ID// Maven Group ID for the artifact
 // 根节点添加
 install {
     repositories.mavenInstaller {
@@ -48,8 +48,8 @@ install {
                 //artifactId MAVEN_ARTIFACT_ID
                 packaging MAVEN_PACKAGING
                 description MAVEN_DESCRIPTION
-                name "permission code for android"
-                url siteUrl
+                name MAVEN_NAME
+                url MAVEN_URL
                 inceptionYear MAVEN_INCEPTION_YEAR
 
                 scm {
@@ -95,7 +95,7 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
 }
 
 artifacts {
-    //archives javadocJar
+    archives javadocJar
     archives sourcesJar
 }
 
